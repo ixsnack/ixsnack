@@ -1,7 +1,7 @@
 /**
  * Common
  */
-;(function ( $, $B ) {
+;(function ( $ ) {
     'use strict';
 
     //Category
@@ -30,4 +30,4 @@
         }
     });
 
-})( jQuery, ixBand );
+})( jQuery );

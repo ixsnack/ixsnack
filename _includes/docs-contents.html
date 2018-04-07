@@ -1,0 +1,110 @@
+{% assign data=site.data[page.category][page.title] %}
+
+<h1>{{ data.title }}</h1>
+
+<div class="spec">
+    <p><span class="accent">Type</span> : {{ data.type }}</p>
+    <p><span class="accent">Support</span> : {{ data.support }}</p>
+    {% if data.extend %}
+    <p><span class="accent">Extend</span> : {% unless data.extend.path %}-{% else %}<a href="{{ site.baseurl }}/docs{{ data.extend.path }}">{{ data.extend.label }}</a>{% endunless %}</p>
+    {% endif %}
+    {% if data.return %}
+    <p><span class="accent">Return</span> : {{ data.return }}</p>
+    {% endif %}
+</div>
+
+<div class="description">
+    <ul>
+        {% for desc in data.description %}
+        <li>{{ desc }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% if data.methods %}
+<h3>Methods</h3>
+<div class="methods">
+    <ul>
+        {% for method in data.methods %}
+        <li class="method">
+            <h4>
+                <span class="accent">{{ method.name }}(</span>{% if method.params %} {% for param in method.params %}{{param.name}}{% unless forloop.last %}, {% endunless %}{% endfor %} {% endif %}<span class="accent">)</span>{% if method.return %} : {% for returnLabel in method.return %}<span class="type return">{{ returnLabel }}</span>{% endfor %}{% endif %}{% if method.version %}<span class="ver">ver {{ method.version }}</span>{% endif %}
+                {% if method.flags %}
+                <ul class="flags">
+                    {% for flag in method.flags %}
+                    <li>{{ flag }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </h4>
+            <div class="desc">{{ method.desc }}</div>
+            {% if method.params %}
+            <ul class="params">
+                {% for param in method.params %}
+                <li class="param">
+                    <div><span class="accent">{{ param.name }}</span> : {% for pType in param.type %}<span class="type">{{pType}}</span>{% endfor %}</div>
+                    {% if param.desc %}
+                    <div class="desc">{{ param.desc }}</div>
+                    {% endif %}
+                    {% if param.props %}
+                    <ul class="props">
+                        {% for prop in param.props %}
+                        <li class="prop">
+                            <div><span class="accent">{{ prop.name }}</span> : {% for ppType in prop.type %}<span class="type">{{ppType}}</span>{% endfor %}</div>
+                            <div class="desc">{{ prop.desc }}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% if data.events %}
+<h3>Events</h3>
+<div class="events">
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>type</th>
+                <th>description</th>
+                <th>property</th>
+                <th>ver</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in data.events %}
+            <tr>
+                <td>{{ event.procedure }}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.desc }}</td>
+                <td>
+                    {% if event.properties %}
+                    <ul>
+                        {% for prop in event.properties %}
+                        <li><span class="accent">{{ prop.name }}</span>{% if prop.desc %}: {{ prop.desc }}{% endif %}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if event.info %}
+                    <span class="info">{{ event.info }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ event.ver }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+<div>
+
+</div>

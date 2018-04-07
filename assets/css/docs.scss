@@ -1,0 +1,39 @@
+---
+---
+
+@import 'theme';
+@import 'docs-contents-area';
+@import 'category';
+
+
+.docs_search {
+  //padding-left: 0.7em;
+
+  .search_input_area {
+    padding: 2em 0 1em 0;
+
+    input {
+      background: transparent;
+      padding: 8px;
+      border: $input-border-color solid 1px;
+      border-radius: 3px;
+      height: 20px;
+    }
+
+    .btn-search {
+      background: $header-bg-dark-color;
+      padding: 0 1em;
+      color: #fff;
+      border-radius: 3px;
+      border: 0;
+      height: 38px;
+    }
+  }
+
+  .hash {
+    > span {
+      margin: 0 1em 0 0;
+    }
+  }
+
+}

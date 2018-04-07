@@ -1,0 +1,52 @@
+---
+---
+
+@import 'theme';
+
+main {
+  max-width: 800px;
+}
+
+#contents-area {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em 2em 5em 2em;
+  
+  h1 {
+    font-size: 3.2em;
+    font-weight: 300;
+    margin: 0.67em 0 0.4em 0;
+  }
+  
+  h2 {
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  .old_version {
+    margin-top: 1em;
+    background: $table-head-color;
+    padding: 1em;
+    border-radius: 0.3rem;
+    color: $body-text-gray-color;
+  }
+
+  .area_404 {
+    h1, h2, h3, div {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin: 3em 0;
+    }
+
+    h3 {
+      margin: 1em 0;
+    }
+  }
+}

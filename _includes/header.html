@@ -1,0 +1,70 @@
+{% assign data=site.data[page.category][page.title] %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+    <meta name="title" content="{{ page.title }}|ixSnack.js" />
+    <meta name="author" content="blaxk"/>
+    <meta name="description" content="Type:{{ data.type }} | {{ data.description[0] }}"/>
+	<meta name="keywords" content="ixSnack, ixSnack.js, Javascript, JS, Javascript Core{% for tag in page.tags %}, {{ tag }}{% endfor %}"/>
+	<meta property="article:tag" content="ixSnack" />
+	<meta property="article:tag" content="ixSnack.js" />
+	<meta property="article:tag" content="Javascript" />
+	<meta property="article:tag" content="Javascript Core" />
+	{% for tag in page.tags %}
+	<meta property="article:tag" content="{{ tag }}" />
+	{% endfor %}
+
+    <title>{{ page.title }} | ixSnack.js</title>
+
+    <link href="{{ site.baseurl }}/assets/images/ixsnack_mark.png" rel="icon" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/assets/css/{{ page.layout }}.css" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+
+    <script>
+        window.UI = {
+            BASE_URL: '{{ site.baseurl }}'
+        };
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <!--<script src="https://cdn.rawgit.com/blaxk/ixsnack/v1.1.1/bin/ixSnack_1.1.min.js"></script>-->
+</head>
+<body>
+<header>
+    <div class="header-wrap">
+        <button type="button" class="btn-category"><i class="fas fa-align-justify"></i></button>
+        <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
+        <a class="logo" href="{{ site.baseurl }}/" alt="home"><img src="{{ site.baseurl }}/assets/images/ixsnack_white.svg" alt="logo" width="120" height="30"></a>
+        <div class="menu-group">
+            <div class="menu">
+                <ul>
+                    <li class="depth1">
+                        <a href="{{ site.baseurl }}/docs/">Docs</a>
+                    </li>
+                    <li class="depth1">
+                        <a href="{{ site.baseurl }}/examples/">Examples</a>
+                    </li>
+                    <li class="depth1">
+                        <a href="https://github.com/blaxk/ixsnack/releases">Download</a>
+                    </li>
+                    <li class="search">
+                        <form action="{{ site.baseurl }}/search/" method="get">
+                            <i class="fa fa-search"></i>
+                            <input type="search" placeholder="Search..." name="keyword" class="search-input">
+                        </form>
+                    </li>
+                    <li class="github">
+                        <a href="https://github.com/blaxk/ixsnack"><i class="fab fa-github"></i>github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

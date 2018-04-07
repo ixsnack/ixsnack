@@ -1,0 +1,37 @@
+# Site
+title: ixSnack.js
+subtitle: ixSnack.js Documentation
+description: ixSnack.js Documentation
+author: blaxk
+language: ko
+date_format: '%Y-%m-%d'
+timezone: 'Asia/Seoul'
+
+# URL
+url: https://ixsnack.github.io/ixsnack/
+baseurl: /ixsnack/
+permalink: /:path/
+
+# Conversion
+markdown:    kramdown
+highlighter: rouge
+
+collections:
+  docs:
+    output: true
+    permalink: /docs/:path/
+
+# Default
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'pages'
+    values:
+      layout: 'default'
+  -
+    scope:
+      path: 'docs'
+      type: 'docs'
+    values:
+      layout: 'docs'

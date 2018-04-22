@@ -1,6 +1,6 @@
 
 #contents-area {
-  & > p {
+  > p {
     margin-left: 10px;
   }
 
@@ -8,6 +8,14 @@
     width: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+
+    & .options {
+      border-top: $header-bg-dark-color solid 1px;
+
+      > .desc {
+        margin: 12px 16px 20px 16px;
+      }
+    }
 
     .required {
       font-weight: bold;

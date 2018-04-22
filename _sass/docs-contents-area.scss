@@ -4,28 +4,6 @@
     margin-left: 10px;
   }
 
-  .table-wrap {
-    width: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
-    &.options {
-      border-top: $header-bg-dark-color solid 1px;
-
-      > .desc {
-        margin: 12px 16px 20px 16px;
-      }
-    }
-
-    .required {
-      font-weight: bold;
-      color: red;
-    }
-    .center {
-      text-align: center;
-    }
-  }
-
   @include large {
     float: left;
     width: 80%;
@@ -214,6 +192,28 @@
     border: 0;
   }
 
+  .table-wrap {
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &.options {
+      border-top: $dark-border-color solid 1px;
+
+      > .desc {
+        margin: 12px 16px 20px 16px;
+      }
+    }
+
+    .required {
+      font-weight: bold;
+      color: red;
+    }
+    .center {
+      text-align: center;
+    }
+  }
+
   .spec {
     padding-left: 17px;
     font-size: 0.95em;
@@ -236,7 +236,8 @@
     border-bottom: $border-color solid 1px;
 
     .name {
-
+      font-weight: 600;
+      color: $methods-name-text-color;
     }
 
     .type {

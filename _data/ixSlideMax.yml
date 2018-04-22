@@ -11,7 +11,8 @@ return: jQuery
 description:
   - 슬라이드 베너 Plugin (carousel)<br>
     다양한 옵션 적용으로 여러가지 형태로 변형하여 사용할 수 있다.
-  - .ix-touch-area class로 터치영역을 변경할 수 있다, 설정하지 않으면 .ix-list-viewport 가 touch 영역이 된다. v0.4.3~ 지원<br>
+  - .ix-touch-area class로 터치영역을 변경할 수 있다.
+    설정하지 않으면 .ix-list-viewport 가 touch 영역이 된다. v0.4.3~ 지원<br>
     ※한번 적용된 대상에는 "clear" 하기 전에는 다시 적용되지 않는다.
 
 ## Options

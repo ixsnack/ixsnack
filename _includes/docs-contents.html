@@ -39,7 +39,7 @@
 		<tr>
 			<td>{{ option.prop }}</td>
 			<td>{{ option.desc }}</td>
-			<td>{{ option.required }}</td>
+			<td class="center">{% if option.required %}✔{% endif %}</td>
 			<td>{{ option.default }}</td>
 			<td>{{ option.ver }}</td>
 		</tr>
@@ -56,7 +56,7 @@
         {% for method in data.methods %}
         <li class="method">
             <h4>
-				<span class="accent">{{ data.title }}( </span>{% if method.name %}<span class="name">{{ method.name }}</span>, {% endif %}{% if method.params %} {% for param in method.params %}{{param.name}}{% unless forloop.last %}, {% endunless %}{% endfor %} {% endif %}<span class="accent">)</span>{% if method.return %} : {% for returnLabel in method.return %}<span class="type return">{{ returnLabel }}</span>{% endfor %}{% endif %}{% if method.version %}<span class="ver">ver {{ method.version }}</span>{% endif %}
+				<span class="accent">{{ data.title }}( </span>{% if method.name %}<span class="name">'{{ method.name }}'</span>, {% endif %}{% if method.params %} {% for param in method.params %}{{param.name}}{% unless forloop.last %}, {% endunless %}{% endfor %} {% endif %}<span class="accent">)</span>{% if method.return %} : {% for returnLabel in method.return %}<span class="type return">{{ returnLabel }}</span>{% endfor %}{% endif %}{% if method.version %}<span class="ver">ver {{ method.version }}</span>{% endif %}
                 {% if method.flags %}
                 <ul class="flags">
                     {% for flag in method.flags %}

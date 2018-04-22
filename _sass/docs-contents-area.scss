@@ -8,6 +8,14 @@
     width: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+
+    .required {
+      font-weight: bold;
+      color: red;
+    }
+    .center {
+      text-align: center;
+    }
   }
 
   @include large {
@@ -218,6 +226,10 @@
 
   .methods {
     border-bottom: $border-color solid 1px;
+
+    .name {
+
+    }
 
     .type {
       background: $type-bg-color;

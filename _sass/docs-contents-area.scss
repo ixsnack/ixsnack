@@ -9,7 +9,7 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 
-    & .options {
+    &.options {
       border-top: $header-bg-dark-color solid 1px;
 
       > .desc {

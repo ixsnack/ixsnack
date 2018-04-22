@@ -40,9 +40,9 @@
 		<tr>
 			<td>{{ option.prop }}</td>
 			<td>{{ option.desc }}</td>
-			<td class="center">{% if option.required %}✔{% endif %}</td>
+			<td class="center required">{% if option.required %}✔{% endif %}</td>
 			<td>{{ option.default }}</td>
-			<td>{{ option.ver }}</td>
+			<td class="center">{{ option.ver }}</td>
 		</tr>
 		{% endfor %}
 		</tbody>

@@ -59,6 +59,28 @@ options:
     required: false
     default: ease
     ver: 0.3
+  - prop: axis
+    desc: 슬라이드 방향축이 가로인지 세로인지 설정 ( "horizontal", "vertical" )
+    required: false
+    default: horizontal
+    ver: 0.3
+  - prop: datum-point
+    desc: 기준점 설정, 시작되는 좌표<br>
+          px, % 단위 모두 사용 가능 ("ix-list-viewport" 기준)
+    required: false
+    default: 0
+    ver: 0.3
+  - prop: default-index
+    desc: 기본으로 보여져야 하는 아이템의 index 설정<br>
+          아이템갯수 보다 크게 설정하면 적용되지 않는다.
+    required: false
+    default: 0
+    ver: 0.3
+  - prop: item-size
+    desc: 아이템 하나의 사이즈 (px), margin 제외
+    required: false
+    #default:
+    ver: 0.3
 
 ## Methods
 methods:

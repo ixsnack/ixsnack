@@ -81,6 +81,59 @@ options:
     required: false
     #default:
     ver: 0.3
+  - prop: item-margin
+    desc: 아이템 양쪽의 마진 (px), ex)10px 10px
+    required: false
+    #default:
+    ver: 0.3
+  - prop: viewport-ratio
+    desc: class="ix-list-viewport" 대상의 가로 세로 비율 설정<br>
+          해당 옵션을 설정하게 되면 이미지가 로드 되기전에 viewport의 사이즈를 설정할 수 있다.<br>
+          설정 시점에 보이지 않는 영역에 있다면 제대로 설정하지 못한다.<br>
+          ex)100 70
+    required: false
+    #default:
+    ver: 0.3
+  - prop: opposite
+    desc: auto-play설정시 역방향으로 슬라이드 되도록 설정
+    required: false
+    default: false
+    ver: 0.3
+  - prop: paging
+    desc: '"view-length"에 맞춰 페이징 처리.<br>
+          ※loop:false 일때만 설정되고, view-length와 move-length가 같을때 제대로 계산된다.'
+    required: false
+    default: false
+    ver: 0.3
+  - prop: correct-endpoint
+    desc: 'view-length보다 아이템이 화면의 조금더 보여질때, 마지막 아이템의 끝을 "ix-list-viewport"의 사이즈의 맞춰 좌표를 보정 하도록 설정.<br>
+           px, % 단위 사용 가능 ("ix-list-viewport" 기준) v0.4.3~ 지원<br>
+           ※loop:false, paging:false 일때만 동작한다.'
+    required: false
+    default: false
+    ver: 0.3
+  - prop: include-margin
+    desc: 아이템 사이즈를 계산할때 margin을 포함하여 계산하도록 설정<br>
+          주로 아이템은 % margin은 px 처럼 단위를 따로 설정 해야 할때 사용.<br>
+          ※css의 설정한 ix-list-item의 사이즈에서 -margin값 만큼 작게 표시된다.
+    required: false
+    default: false
+    ver: 0.3
+  - prop: bounce
+    desc: loop:false일때 모바일에서 드레그시 마지막 아이템에서 bounce 되는 설정
+    required: false
+    default: true
+    ver: 0.3
+  - prop: touch-disable
+    desc: 모바일에서 Touch Event 비활성화 설정
+    required: false
+    default: false
+    ver: 0.3.4
+  - prop: swipe-sensitivity
+    desc: swipe 민감도 설정, 1보다 커질수록 둔감해지고 작아질수록 민감해진다.
+    required: false
+    default: 0.5
+    ver: 0.4
 
 ## Methods
 methods:
@@ -109,21 +162,175 @@ methods:
         desc: 설정시 해당 수치만큼 아이템이 이동한다, 설정하지 않으면 기본설정대로 이동한다, v0.4.3~ 지원<br>
                ※view-length 보다 크게 설정하면 동작하지 않는다.
 
+  - name: prev
+    return:
+      - jQuery
+    version: 0.3~
+    desc: 아이템의 이전 으로 슬라이드 시킨다.
+    params:
+      - name: moveLength
+        type:
+          - Int
+        desc: 설정시 해당 수치만큼 아이템이 이동한다, 설정하지 않으면 기본설정대로 이동한다, v0.4.3~ 지원<br>
+              ※view-length 보다 크게 설정하면 동작하지 않는다.
+
+  - name: startTimer
+    return:
+      - jQuery
+    version: 0.3~
+    desc: auto-play:true 설정 후 타이머를 멈췄다 다시 실행 할때 사용
+
+  - name: stopTimer
+    return:
+      - jQuery
+    version: 0.3~
+    desc: auto-play:true 설정 후 타이머를 멈출때 사용
+
+  - name: resize
+    return:
+      - jQuery
+    version: 0.3~
+    desc: Viewport, Item 등등의 사이즈 재설정
+          ※inline style은 모두 삭제된후 css의 정의된 class를 기준으로 사이즈가 재설정 된다.
+
+  - name: changeIndex
+    return:
+      - jQuery
+    version: 0.3~
+    desc: 설정한 index의 아이템 위치로 슬라이드 이동
+    params:
+      - name: index
+        type:
+          - Int
+        desc: 변경할 아이템의 index 수치<br>
+              ※전체 아이템 갯수보다 크거나 0보다 작게 설정하면 동작하지 않는다.
+
+  - name: getCurrentIndex
+    return:
+      - Int
+    version: 0.3~
+    desc: 첫번째 대상의 현재 선택된 Item의 index반환
+    params:
+      - name: total
+        type:
+          - Boolean
+        desc: true 설정시 data-idx 반환, v0.4.3~ 지원
+
+  - name: getTotalLength
+    return:
+      - Int
+    version: 0.3~
+    desc: Item의 갯수 반환 (복제된 Item 제외)
+
+  - name: getComputedOption
+    return:
+      - Object
+      - '*'
+    version: 0.4~
+    desc: 현재 적용된 option 반환
+    params:
+      - name: property
+        type:
+          - String
+        desc: 설정시 해당 propety의 값만 반환<br>
+              설정하지 않으면 Object로 모든 option반환
+
+  - name: enable
+    return:
+      - jQuery
+    version: 0.3.7~
+    desc: Controller Button의 동작과 Touch Device에서 TouchEvent를 비활성화 시킨다.
+
+  - name: disable
+    return:
+      - jQuery
+    version: 0.3.7~
+    desc: Controller Button의 동작과 Touch Device에서 TouchEvent를 활성화 시킨다.<br>
+          ※touch-disable=true 가 설정되어 있으면 TouchEvent 활성화는 동작하지 않는다.
+
+  - name: clear
+    return:
+      - jQuery
+    version: 0.3~
+    desc: 슬라이드 적용 해제, 등록된 이벤트들도 모두 삭제되어 초기화 된다.
+
 ## Events
 events:
   - procedure: 1
-    type: activate
-    desc: 구간에 진입시 한번만 발생
+    type: ixSlideMax:init
+    desc: 초기 설정시 전달 되는 Event
     properties:
-      - name: index
-        desc: 현재 구간의 배열 index
-      - name: data
-        desc: positons에 등록했던 각 data들
-      - name: percent
-        desc: 구간에서의 scroll 진행률값 0~1
-      - name: totalPercent
-        desc: 전체 구간에서의 scroll 진행률값 0~1
-      - name: value
-        desc: 해당 시점의 scrollTop이나 scrollLeft값
+      - name: currentIndex
+        desc: 현재 item의 index
+      - name: totalLength
+        desc: 전체 item 갯수
+      - name: endpoint
+        desc: loop:false면서 현재 화면이 마지막 일때 true 반환
+#    info:
+    ver: 0.3
+
+  - procedure: 2
+    type: ixSlideMax:touchStart
+    desc: Touch Device에서 Swipe를 하기위하여 Touch가 시작될때 전달 되는 Event
+    properties:
+      - name: currentIndex
+        desc: 현재 item의 index
+      - name: totalLength
+        desc: 전체 item 갯수
+#    info:
+    ver: 0.3
+
+  - procedure: 3
+    type: ixSlideMax:touchEnd
+    desc: Touch Device에서 Swipe를 끝내며 Touch가 끝났을때 전달 되는 Event
+    properties:
+      - name: currentIndex
+        desc: 현재 item의 index
+      - name: totalLength
+        desc: 전체 item 갯수
+#    info:
+    ver: 0.3
+
+  - procedure: 4
+    type: ixSlideMax:slideStart
+    desc: Item의 Slide가 시작될때 전달 되는 Event
+    properties:
+      - name: currentIndex
+        desc: 현재 item의 index
+      - name: totalLength
+        desc: 전체 item 갯수
+      - name: direction
+        desc: slide방향 (none, next, prev), ※v0.3.7~ 지원
+#    info:
+    ver: 0.3
+
+  - procedure: 5
+    type: ixSlideMax:change
+    desc: Item이 Slide되어 index가 변경 되었을시 전달 되는 Event
+    properties:
+      - name: currentIndex
+        desc: 현재 item의 index
+      - name: totalLength
+        desc: 전체 item 갯수
+      - name: endpoint
+        desc: loop:false면서 현재 화면이 마지막 일때 true 반환
+      - name: direction
+        desc: slide방향 (none, next, prev), ※v0.3.7~ 지원
+#    info:
+    ver: 0.3
+
+  - procedure: 6
+    type: ixSlideMax:slideEnd
+    desc: Item의 Slide가 끝났을때 전달 되는 Event<br>
+          index가 변경 되지 않아도 무조건 호출된다.
+    properties:
+      - name: currentIndex
+        desc: 현재 item의 index
+      - name: totalLength
+        desc: 전체 item 갯수
+      - name: endpoint
+        desc: loop:false면서 현재 화면이 마지막 일때 true 반환
+      - name: direction
+        desc: slide방향 (none, next, prev), ※v0.3.7~ 지원
 #    info:
     ver: 0.3

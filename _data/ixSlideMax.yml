@@ -11,7 +11,7 @@ return: jQuery
 description:
   - 슬라이드 베너 Plugin (carousel)<br>
     다양한 옵션 적용으로 여러가지 형태로 변형하여 사용할 수 있다.
-  - .ix-touch-area class로 터치영역을 변경할 수 있다.
+  - .ix-touch-area class로 터치영역을 변경할 수 있다.<br>
     설정하지 않으면 .ix-list-viewport 가 touch 영역이 된다. v0.4.3~ 지원<br>
     ※한번 적용된 대상에는 "clear" 하기 전에는 다시 적용되지 않는다.
 
@@ -21,7 +21,44 @@ options:
     desc: 구간에 진입시 한번만 발생
     required: true
     default: 1
-    ver: 1.0
+    ver: 0.3
+  - prop: move-length
+    desc: 한번에 움직이는 아이템 갯수 설정<br>
+           view-length 보다 크게 설정할 수 없다.
+    required: false
+    default: view-length 설정값
+    ver: 0.3
+  - prop: loop
+    desc: 아이템들을 끊기지 않고 연결해서 보여주도록 설정
+    required: false
+    default: true
+    ver: 0.3
+  - prop: auto-play
+    desc: 일정시간이 지나면 자동 슬라이드 되도록 설정
+    required: false
+    default: false
+    ver: 0.3
+  - prop: delay
+    desc: auto-play 설정시 자동 슬라이드 간격, 1000/1초
+    required: false
+    default: 4000
+    ver: 0.3
+  - prop: motion-type
+    desc: 슬라이드 모션 방식 설정 ( "slide", "none" )
+    required: false
+    default: slide
+    ver: 0.3
+  - prop: duration
+    desc: motion-type이 slide일때 animate 시간, 1000/1초
+    required: false
+    default: 400
+    ver: 0.3
+  - prop: easing
+    desc: motion-type이 slide일때 animate easing값 설정<br>
+          ixSnack.easing.js, jquery.easing.js 필요
+    required: false
+    default: ease
+    ver: 0.3
 
 ## Methods
 methods:

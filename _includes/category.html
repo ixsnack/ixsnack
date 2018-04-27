@@ -1,42 +1,11 @@
 <button type="button" class="btn-category-close"><i class="far fa-times-circle"></i></button>
 
 <ul class="categories">
-    {% assign sortedDocs = site.docs | sort: 'category' %}
-    {% assign groups = sortedDocs | group_by: 'category' %}
 
-	{% comment %}
-    <li class="started {% if page.title == 'Getting started' %}active{% endif %}">
-        <a href="{{ site.baseurl }}/started">Getting started</a>
-    </li>
-	{% endcomment %}
+	{% for doc in site.docs %}
+	<li class="{% if doc.title == page.title %}active{% endif %}">
+		<a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a>
+	</li>
+	{% endfor %}
 
-    {% for group in groups %}
-        {% if group.name != 'DOM' %}
-        <li class="{% if group.name == page.category %}active{% endif %}">
-            <button type="button" class="category-name"><span>{% if group.name == 'B' %}${% endif %}{{ group.name }}</span></button>
-            <ul class="category-items">
-                {% for item in group.items %}
-                <li class="{% if item.title == page.title %}active{% endif %}">
-                    <a href="{{ site.baseurl }}{{ item.url }}">{{ site.data[group.name][item.title].title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </li>
-        {% endif %}
-    {% endfor %}
-
-    {% for group in groups %}
-        {% if group.name == 'DOM' %}
-        <li class="{% if group.name == page.category %}active{% endif %}">
-            <button type="button" class="category-name"><span>{{ group.name }}</span></button>
-            <ul class="category-items">
-                {% for item in group.items %}
-                <li class="{% if item.title == page.title %}active{% endif %}">
-                    <a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </li>
-        {% endif %}
-    {% endfor %}
 </ul>

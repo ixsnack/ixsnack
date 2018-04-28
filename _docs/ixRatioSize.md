@@ -2,6 +2,7 @@
 layout: docs
 title: ixRatioSize
 tags: []
+index: 5
 ---
 
 {% include docs-contents.html %}

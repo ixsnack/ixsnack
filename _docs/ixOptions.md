@@ -2,6 +2,7 @@
 layout: docs
 title: ixOptions
 tags: []
+index: 6
 ---
 
 {% include docs-contents.html %}

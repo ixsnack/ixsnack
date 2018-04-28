@@ -2,6 +2,7 @@
 layout: docs
 title: ixRangeSlider
 tags: []
+index: 4
 ---
 
 {% include docs-contents.html %}

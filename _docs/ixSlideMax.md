@@ -2,6 +2,7 @@
 layout: docs
 title: ixSlideMax
 tags: []
+index: 0
 ---
 
 {% include docs-contents.html %}

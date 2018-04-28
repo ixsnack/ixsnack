@@ -2,6 +2,7 @@
 layout: docs
 title: ixSlideLite
 tags: []
+index: 1
 ---
 
 {% include docs-contents.html %}

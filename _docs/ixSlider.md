@@ -2,6 +2,7 @@
 layout: docs
 title: ixSlider
 tags: []
+index: 3
 ---
 
 {% include docs-contents.html %}

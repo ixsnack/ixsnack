@@ -1,6 +1,8 @@
 ---
 layout: default
 title: ixSlideMax
+tags: []
+index: 0
 ---
 
 ### ixSlideMax ==========

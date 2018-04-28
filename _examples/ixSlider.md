@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: examples
 title: ixSlider
 tags: []
 index: 2

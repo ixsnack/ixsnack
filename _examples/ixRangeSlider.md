@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: examples
 title: ixRangeSlider
 tags: []
 index: 3

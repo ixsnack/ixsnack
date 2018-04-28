@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: examples
 title: ixSlideMax
 tags: []
 index: 0

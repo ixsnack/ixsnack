@@ -1,0 +1,12 @@
+<button type="button" class="btn-category-close"><i class="far fa-times-circle"></i></button>
+
+<ul class="categories">
+	{% assign sortedExs = site.examples | sort: 'index' %}
+
+	{% for ex in sortedExs %}
+	<li class="{% if ex.title == page.title %}active{% endif %}">
+		<a href="{{ ex.id }}">{{ ex.title }}</a>
+	</li>
+	{% endfor %}
+
+</ul>

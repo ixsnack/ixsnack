@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: ixRatioSize
+title: ixOptions
 tags: []
 ---
 

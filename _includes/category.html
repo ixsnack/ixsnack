@@ -1,8 +1,9 @@
 <button type="button" class="btn-category-close"><i class="far fa-times-circle"></i></button>
 
 <ul class="categories">
+	{% assign sortedDocs = site.docs | sort: 'index' %}
 
-	{% for doc in site.docs %}
+	{% for doc in sortedDocs %}
 	<li class="{% if doc.title == page.title %}active{% endif %}">
 		<a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a>
 	</li>

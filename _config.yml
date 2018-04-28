@@ -25,12 +25,6 @@ collections:
 defaults:
   -
     scope:
-      path: ''
-      type: 'pages'
-    values:
-      layout: 'default'
-  -
-    scope:
       path: 'docs'
       type: 'docs'
     values:

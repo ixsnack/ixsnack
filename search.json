@@ -13,16 +13,16 @@ layout: null
             "{{ desc | uri_escape }}"{% unless forloop.last %},{% endunless %}
           {% endfor %}
         ],
-        "options": {
+        "options": [
           {% for option in data.options %}
-            {{ option.prop }}: "{{ option.prop }}"{% unless forloop.last %},{% endunless %}
+            "{{ option.prop }}"{% unless forloop.last %},{% endunless %}
           {% endfor %}
-        },
-        "methods": {
+        ],
+        "methods": [
           {% for method in data.methods %}
-            {{ method.name }}: "{{ method.name }}"{% unless forloop.last %}, {% endunless %}
+            "{{ method.name }}"{% unless forloop.last %}, {% endunless %}
           {% endfor %}
-        },
+        ],
         "path": "{{ site.baseurl }}{{ doc.id }}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}

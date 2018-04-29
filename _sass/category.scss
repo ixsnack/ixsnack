@@ -48,11 +48,11 @@
 
         > li.active {
           &:before {
-            position: absolute;
-            content: ' *';
-            font-weight: bold;
-            color: $header-bg-color;
-            left: -12px;
+            //position: absolute;
+            //content: ' *';
+            //font-weight: bold;
+            //color: $header-bg-color;
+            //left: -12px;
           }
 
           a {

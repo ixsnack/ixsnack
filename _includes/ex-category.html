@@ -3,10 +3,15 @@
 <ul class="categories">
 	{% assign sortedExs = site.examples | sort: 'index' %}
 
-	{% for ex in sortedExs %}
-	<li class="{% if ex.title == page.title %}active{% endif %}">
-		<a href="{{ ex.id }}">{{ ex.title }}</a>
+	<li class="active">
+		<div class="category-name"><span>Examples</span></div>
+		<ul class="category-items">
+			{% for ex in sortedExs %}
+			<li class="{% if ex.title == page.title %}active{% endif %}">
+				<a href="{{ ex.id }}">{{ ex.title }}</a>
+			</li>
+			{% endfor %}
+		</ul>
 	</li>
-	{% endfor %}
 
 </ul>

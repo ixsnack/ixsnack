@@ -1,0 +1,64 @@
+
+#contents-area {
+  > p {
+    margin-left: 10px;
+  }
+
+  @include large {
+    float: left;
+    width: 80%;
+    padding: 20px 0 5rem 45px;
+    border-left: $border-color solid 1px;
+    margin-left: -1px;
+  }
+
+  @include medium {
+    float: left;
+    width: 80%;
+    padding: 20px;
+    border-left: none;
+  }
+
+  @include small {
+    width: 100%;
+    padding: 20px;
+    border-left: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+    color: $section-headings-color;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    margin: 2.2em 0 0.5em 5px;
+  }
+
+  h4 {
+    position: relative;
+    margin: 1em 0 0.5em 0;
+    background: $method-h-color;
+    border-radius: 0 5px 0 5px;
+    padding: 6px 16px;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+  }
+
+}

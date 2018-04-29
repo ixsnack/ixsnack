@@ -26,15 +26,16 @@
       font-weight: 600;
 
       .category-name span {
-        margin-left: 5px;
+        //margin-left: 5px;
+        margin-bottom: 10px;
       }
 
       .category-name:before {
-        font-family: "Font Awesome 5 Free";
-        font-size: 0.7em;
-        font-weight: 900;
-        content: '\f054';
-        vertical-align: middle;
+        //font-family: "Font Awesome 5 Free";
+        //font-size: 0.7em;
+        //font-weight: 900;
+        //content: '\f054';
+        //vertical-align: middle;
       }
 
       .category-items {
@@ -60,7 +61,7 @@
 
     & > li.active {
       .category-name:before {
-        content: '\f078';
+        //content: '\f078';
       }
 
       .category-items {

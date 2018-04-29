@@ -30,6 +30,7 @@
 
         span {
           //margin-left: 5px;
+          font-size: 1.2em;
         }
       }
 
@@ -44,7 +45,6 @@
       .category-items {
         display: none;
         font-weight: normal;
-        margin-left: 3px;
 
         > li.active {
           &:before {

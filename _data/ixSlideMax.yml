@@ -18,7 +18,8 @@ description:
 ## Options
 options:
   - prop: view-length
-    desc: 구간에 진입시 한번만 발생
+    desc: 화면에 보여지는 아이템 갯수 설정<br>
+          이 설정을 기준으로 움직임의 양이나 좌표를 계산하게 된다.
     required: true
     default: 1
     ver: 0.3

@@ -205,6 +205,11 @@ methods:
           - Int
         desc: 변경할 아이템의 index 수치<br>
               ※전체 아이템 갯수보다 크거나 0보다 작게 설정하면 동작하지 않는다.
+      - name: direction
+        type:
+          - String
+        desc: slide 방향까지 설정하고 싶을때 사용 ('next', 'prev')<br>
+              일반적인 경우는 설정하지 않아도 된다, v0.6.0~ 지원
 
   - name: getCurrentIndex
     return:

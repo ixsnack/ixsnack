@@ -84,4 +84,4 @@ include-margin:true를 설정하여 CSS에 설정한 아이템의 width값에 ma
 
 ## Slide간 이벤트 연계 설정
 각 Slide의 변경 상태를 다른 Slide에 적용할때 사용한다.
-<iframe allowfullscreen="true" allowtransparency="true" frameborder="no" height="266" scrolling="no" src="//codepen.io/blaxk/embed/aXBzmg/?height=510&amp;theme-id=0&amp;default-tab=result" style="width: 100%;"></iframe>
+<iframe allowfullscreen="true" allowtransparency="true" frameborder="no" height="420" scrolling="no" src="//codepen.io/blaxk/embed/aXBzmg/?height=420&amp;theme-id=0&amp;default-tab=result" style="width: 100%;"></iframe>

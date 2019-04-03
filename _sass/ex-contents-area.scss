@@ -61,4 +61,74 @@
     margin-top: 0;
   }
 
+  code {
+    padding: 2px 4px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.8rem;
+    color: $code-text-color;
+    background-color: $code-bg-color;
+    border-radius: 0.3rem;
+  }
+
+  pre {
+    padding: 1.5em 3em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.8rem;
+    color: $code-text-color;
+    word-wrap: normal;
+    background-color: $code-bg-color;
+
+    > code {
+      padding: 0;
+      margin: 0;
+      color: $code-text-color;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  .highlight {
+    margin-bottom: 1rem;
+
+    pre {
+      margin-bottom: 0;
+      word-break: normal;
+    }
+  }
+
+  div.highlight {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .highlight pre,
+  pre {
+    padding: 0.8rem;
+    overflow: auto;
+    border-radius: 0.3rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  pre code,
+  pre tt {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+
+    &:before,
+    &:after {
+      content: normal;
+    }
+  }
+
 }
